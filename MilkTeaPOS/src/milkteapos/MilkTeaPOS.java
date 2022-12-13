@@ -128,7 +128,7 @@ public class MilkTeaPOS {
 		
 		JButton btnNewButton_1 = new JButton("Delete");
 		btnNewButton_1.setFont(new Font("Dialog", Font.BOLD, 20));
-		btnNewButton_1.setBounds(944, 482, 113, 30);
+		btnNewButton_1.setBounds(918, 484, 139, 28);
 		frame.getContentPane().add(btnNewButton_1);
 	}
 }
