@@ -46,8 +46,12 @@ public class MilkTeaPOS {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(0, 0, 906, 433);
+		frame.setBounds(0, 0, 1407, 759);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
+		
+		JPanel panel = new JPanel();
+		panel.setBounds(10, 10, 720, 691);
+		frame.getContentPane().add(panel);
 	}
 }
