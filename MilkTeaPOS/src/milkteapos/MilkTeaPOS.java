@@ -53,5 +53,9 @@ public class MilkTeaPOS {
 		JPanel panel = new JPanel();
 		panel.setBounds(10, 10, 720, 691);
 		frame.getContentPane().add(panel);
+		
+		JPanel panel_1 = new JPanel();
+		panel_1.setBounds(740, 563, 425, 126);
+		frame.getContentPane().add(panel_1);
 	}
 }
