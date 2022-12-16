@@ -15,6 +15,8 @@ import javax.swing.JScrollPane;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.JTabbedPane;
 import java.awt.Color;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class MilkTeaPOS {
 
@@ -52,7 +54,7 @@ public class MilkTeaPOS {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(0, 0, 1292, 740);
+		frame.setBounds(0, 0, 1292, 769);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
@@ -82,7 +84,7 @@ public class MilkTeaPOS {
 		textField.setColumns(10);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(632, 94, 345, 414);
+		scrollPane.setBounds(632, 94, 345, 437);
 		frame.getContentPane().add(scrollPane);
 		
 		table = new JTable();
@@ -100,21 +102,21 @@ public class MilkTeaPOS {
 		scrollPane.setViewportView(table);
 		
 		JPanel panel = new JPanel();
-		panel.setBounds(981, 94, 289, 412);
+		panel.setBounds(981, 94, 289, 462);
 		frame.getContentPane().add(panel);
 		panel.setLayout(null);
 		
 		JTextArea textArea = new JTextArea();
-		textArea.setBounds(0, 0, 288, 412);
+		textArea.setBounds(0, 0, 289, 462);
 		panel.add(textArea);
 		
 		JButton btnNewButton = new JButton("Remove Item");
-		btnNewButton.setBounds(834, 516, 143, 21);
+		btnNewButton.setBounds(834, 535, 143, 21);
 		btnNewButton.setFont(new Font("Dialog", Font.BOLD, 15));
 		frame.getContentPane().add(btnNewButton);
 		
 		JPanel panel_1 = new JPanel();
-		panel_1.setBounds(630, 542, 642, 154);
+		panel_1.setBounds(628, 568, 642, 154);
 		frame.getContentPane().add(panel_1);
 		panel_1.setLayout(null);
 		
@@ -165,195 +167,182 @@ public class MilkTeaPOS {
 		panel_1.add(btnNewButton_3);
 		
 		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
-		tabbedPane.setBounds(10, 79, 614, 617);
+		tabbedPane.setBounds(10, 79, 614, 643);
 		frame.getContentPane().add(tabbedPane);
 		
-		JPanel panel_2 = new JPanel();
-		tabbedPane.addTab("New tab", null, panel_2, null);
-		panel_2.setLayout(null);
-		
-		JButton btnNewButton_4 = new JButton("S-35");
-		btnNewButton_4.setBounds(47, 166, 63, 21);
-		panel_2.add(btnNewButton_4);
-		
-		JButton btnNewButton_4_1 = new JButton("M-40");
-		btnNewButton_4_1.setBounds(120, 166, 63, 21);
-		panel_2.add(btnNewButton_4_1);
-		
-		JButton btnNewButton_4_2 = new JButton("L-60");
-		btnNewButton_4_2.setBounds(198, 166, 63, 21);
-		panel_2.add(btnNewButton_4_2);
-		
-		JLabel lblNewLabel_6 = new JLabel("WINTERMELON");
-		lblNewLabel_6.setFont(new Font("Ink Free", Font.BOLD, 12));
-		lblNewLabel_6.setBounds(103, 145, 99, 28);
-		panel_2.add(lblNewLabel_6);
-		
-		JLabel lblNewLabel_6_1 = new JLabel("WINTERMELON");
-		lblNewLabel_6_1.setFont(new Font("Ink Free", Font.BOLD, 12));
-		lblNewLabel_6_1.setBounds(403, 145, 99, 28);
-		panel_2.add(lblNewLabel_6_1);
-		
-		JButton btnNewButton_4_3 = new JButton("S-35");
-		btnNewButton_4_3.setBounds(347, 166, 63, 21);
-		panel_2.add(btnNewButton_4_3);
-		
-		JButton btnNewButton_4_1_1 = new JButton("M-40");
-		btnNewButton_4_1_1.setBounds(420, 166, 63, 21);
-		panel_2.add(btnNewButton_4_1_1);
-		
-		JButton btnNewButton_4_2_1 = new JButton("L-60");
-		btnNewButton_4_2_1.setBounds(498, 166, 63, 21);
-		panel_2.add(btnNewButton_4_2_1);
-		
-		JLabel lblNewLabel_6_2 = new JLabel("WINTERMELON");
-		lblNewLabel_6_2.setFont(new Font("Ink Free", Font.BOLD, 12));
-		lblNewLabel_6_2.setBounds(103, 343, 99, 28);
-		panel_2.add(lblNewLabel_6_2);
-		
-		JButton btnNewButton_4_4 = new JButton("S-35");
-		btnNewButton_4_4.setBounds(47, 364, 63, 21);
-		panel_2.add(btnNewButton_4_4);
-		
-		JButton btnNewButton_4_1_2 = new JButton("M-40");
-		btnNewButton_4_1_2.setBounds(120, 364, 63, 21);
-		panel_2.add(btnNewButton_4_1_2);
-		
-		JButton btnNewButton_4_2_2 = new JButton("L-60");
-		btnNewButton_4_2_2.setBounds(198, 364, 63, 21);
-		panel_2.add(btnNewButton_4_2_2);
-		
-		JLabel lblNewLabel_6_2_1 = new JLabel("WINTERMELON");
-		lblNewLabel_6_2_1.setFont(new Font("Ink Free", Font.BOLD, 12));
-		lblNewLabel_6_2_1.setBounds(403, 343, 99, 28);
-		panel_2.add(lblNewLabel_6_2_1);
-		
-		JButton btnNewButton_4_4_1 = new JButton("S-35");
-		btnNewButton_4_4_1.setBounds(347, 364, 63, 21);
-		panel_2.add(btnNewButton_4_4_1);
-		
-		JButton btnNewButton_4_1_2_1 = new JButton("M-40");
-		btnNewButton_4_1_2_1.setBounds(420, 364, 63, 21);
-		panel_2.add(btnNewButton_4_1_2_1);
-		
-		JButton btnNewButton_4_2_2_1 = new JButton("L-60");
-		btnNewButton_4_2_2_1.setBounds(498, 364, 63, 21);
-		panel_2.add(btnNewButton_4_2_2_1);
-		
-		JLabel lblNewLabel_6_2_2 = new JLabel("WINTERMELON");
-		lblNewLabel_6_2_2.setFont(new Font("Ink Free", Font.BOLD, 12));
-		lblNewLabel_6_2_2.setBounds(103, 538, 99, 28);
-		panel_2.add(lblNewLabel_6_2_2);
-		
-		JButton btnNewButton_4_4_2 = new JButton("S-35");
-		btnNewButton_4_4_2.setBounds(47, 559, 63, 21);
-		panel_2.add(btnNewButton_4_4_2);
-		
-		JButton btnNewButton_4_1_2_2 = new JButton("M-40");
-		btnNewButton_4_1_2_2.setBounds(120, 559, 63, 21);
-		panel_2.add(btnNewButton_4_1_2_2);
-		
-		JButton btnNewButton_4_2_2_2 = new JButton("L-60");
-		btnNewButton_4_2_2_2.setBounds(198, 559, 63, 21);
-		panel_2.add(btnNewButton_4_2_2_2);
-		
-		JLabel lblNewLabel_6_2_3 = new JLabel("WINTERMELON");
-		lblNewLabel_6_2_3.setFont(new Font("Ink Free", Font.BOLD, 12));
-		lblNewLabel_6_2_3.setBounds(403, 538, 99, 28);
-		panel_2.add(lblNewLabel_6_2_3);
-		
-		JButton btnNewButton_4_4_3 = new JButton("S-35");
-		btnNewButton_4_4_3.setBounds(347, 559, 63, 21);
-		panel_2.add(btnNewButton_4_4_3);
-		
-		JButton btnNewButton_4_1_2_3 = new JButton("M-40");
-		btnNewButton_4_1_2_3.setBounds(420, 559, 63, 21);
-		panel_2.add(btnNewButton_4_1_2_3);
-		
-		JButton btnNewButton_4_2_2_3 = new JButton("L-60");
-		btnNewButton_4_2_2_3.setBounds(498, 559, 63, 21);
-		panel_2.add(btnNewButton_4_2_2_3);
-		
-		JButton btnNewButton_5 = new JButton("kunwari jlabel to");
-		btnNewButton_5.setBounds(62, 10, 184, 138);
-		panel_2.add(btnNewButton_5);
-		
-		JButton btnNewButton_5_1 = new JButton("para makita lang yung size");
-		btnNewButton_5_1.setBounds(359, 10, 184, 138);
-		panel_2.add(btnNewButton_5_1);
-		
-		JButton btnNewButton_5_1_1 = new JButton("yung isang design");
-		btnNewButton_5_1_1.setBounds(357, 207, 184, 138);
-		panel_2.add(btnNewButton_5_1_1);
-		
-		JButton btnNewButton_5_1_2 = new JButton("nasa kabilang tab");
-		btnNewButton_5_1_2.setBounds(57, 207, 184, 138);
-		panel_2.add(btnNewButton_5_1_2);
-		
-		JButton btnNewButton_5_1_2_1 = new JButton("New button");
-		btnNewButton_5_1_2_1.setBounds(57, 403, 184, 138);
-		panel_2.add(btnNewButton_5_1_2_1);
-		
-		JButton btnNewButton_5_1_1_1 = new JButton("New button");
-		btnNewButton_5_1_1_1.setBounds(357, 403, 184, 138);
-		panel_2.add(btnNewButton_5_1_1_1);
-		
 		JPanel panel_3 = new JPanel();
-		tabbedPane.addTab("New tab", null, panel_3, null);
+		tabbedPane.addTab("Drinks", null, panel_3, null);
 		panel_3.setLayout(null);
 		
-		JButton btnNewButton_6 = new JButton("New button");
-		btnNewButton_6.setBounds(10, 39, 178, 196);
-		panel_3.add(btnNewButton_6);
+		JButton btnNewButton_4_5 = new JButton("palitan ng jlabel");
+		btnNewButton_4_5.setBounds(65, 10, 176, 166);
+		panel_3.add(btnNewButton_4_5);
 		
-		JLabel lblNewLabel_7 = new JLabel("WINTERMELON");
-		lblNewLabel_7.setFont(new Font("Ink Free", Font.BOLD, 15));
-		lblNewLabel_7.setBounds(36, 238, 124, 32);
-		panel_3.add(lblNewLabel_7);
+		JButton btnNewButton_5_1_4 = new JButton("M-40");
+		btnNewButton_5_1_4.setFont(new Font("Dialog", Font.BOLD, 12));
+		btnNewButton_5_1_4.setBounds(117, 179, 65, 21);
+		panel_3.add(btnNewButton_5_1_4);
 		
-		JButton btnNewButton_6_3 = new JButton("New button");
-		btnNewButton_6_3.setBounds(10, 327, 178, 196);
-		panel_3.add(btnNewButton_6_3);
+		JButton btnNewButton_4_2_1 = new JButton("New button");
+		btnNewButton_4_2_1.setBounds(65, 210, 176, 166);
+		panel_3.add(btnNewButton_4_2_1);
 		
-		JLabel lblNewLabel_7_1 = new JLabel("WINTERMELON");
-		lblNewLabel_7_1.setFont(new Font("Ink Free", Font.BOLD, 15));
-		lblNewLabel_7_1.setBounds(36, 526, 124, 32);
-		panel_3.add(lblNewLabel_7_1);
+		JButton btnNewButton_5_1_1_1 = new JButton("M-40");
+		btnNewButton_5_1_1_1.setFont(new Font("Dialog", Font.BOLD, 12));
+		btnNewButton_5_1_1_1.setBounds(117, 379, 65, 21);
+		panel_3.add(btnNewButton_5_1_1_1);
 		
-		JButton btnNewButton_6_4 = new JButton("New button");
-		btnNewButton_6_4.setBounds(216, 327, 178, 196);
-		panel_3.add(btnNewButton_6_4);
+		JButton btnNewButton_4_4_1 = new JButton("New button");
+		btnNewButton_4_4_1.setBounds(65, 410, 176, 166);
+		panel_3.add(btnNewButton_4_4_1);
 		
-		JLabel lblNewLabel_7_2 = new JLabel("WINTERMELON");
-		lblNewLabel_7_2.setFont(new Font("Ink Free", Font.BOLD, 15));
-		lblNewLabel_7_2.setBounds(242, 526, 124, 32);
-		panel_3.add(lblNewLabel_7_2);
+		JButton btnNewButton_5_1_3_1 = new JButton("M-40");
+		btnNewButton_5_1_3_1.setFont(new Font("Dialog", Font.BOLD, 12));
+		btnNewButton_5_1_3_1.setBounds(117, 579, 65, 21);
+		panel_3.add(btnNewButton_5_1_3_1);
 		
-		JButton btnNewButton_6_5 = new JButton("New button");
-		btnNewButton_6_5.setBounds(421, 327, 178, 196);
-		panel_3.add(btnNewButton_6_5);
+		JButton btnNewButton_5_2_3_1 = new JButton("L-60");
+		btnNewButton_5_2_3_1.setFont(new Font("Dialog", Font.BOLD, 12));
+		btnNewButton_5_2_3_1.setBounds(192, 579, 65, 21);
+		panel_3.add(btnNewButton_5_2_3_1);
 		
-		JLabel lblNewLabel_7_3 = new JLabel("WINTERMELON");
-		lblNewLabel_7_3.setFont(new Font("Ink Free", Font.BOLD, 15));
-		lblNewLabel_7_3.setBounds(447, 526, 124, 32);
-		panel_3.add(lblNewLabel_7_3);
+		JButton btnNewButton_5_5_1 = new JButton("S-35");
+		btnNewButton_5_5_1.setFont(new Font("Dialog", Font.BOLD, 12));
+		btnNewButton_5_5_1.setBounds(42, 579, 65, 21);
+		panel_3.add(btnNewButton_5_5_1);
 		
-		JButton btnNewButton_6_1 = new JButton("New button");
-		btnNewButton_6_1.setBounds(421, 39, 178, 196);
-		panel_3.add(btnNewButton_6_1);
+		JButton btnNewButton_5_3_1 = new JButton("S-35");
+		btnNewButton_5_3_1.setFont(new Font("Dialog", Font.BOLD, 12));
+		btnNewButton_5_3_1.setBounds(42, 379, 65, 21);
+		panel_3.add(btnNewButton_5_3_1);
 		
-		JLabel lblNewLabel_7_4 = new JLabel("WINTERMELON");
-		lblNewLabel_7_4.setFont(new Font("Ink Free", Font.BOLD, 15));
-		lblNewLabel_7_4.setBounds(447, 238, 124, 32);
-		panel_3.add(lblNewLabel_7_4);
+		JButton btnNewButton_5_2_1_1 = new JButton("L-60");
+		btnNewButton_5_2_1_1.setFont(new Font("Dialog", Font.BOLD, 12));
+		btnNewButton_5_2_1_1.setBounds(192, 379, 65, 21);
+		panel_3.add(btnNewButton_5_2_1_1);
 		
-		JButton btnNewButton_6_2 = new JButton("New button");
-		btnNewButton_6_2.setBounds(216, 39, 178, 196);
-		panel_3.add(btnNewButton_6_2);
+		JButton btnNewButton_5_2_4 = new JButton("L-60");
+		btnNewButton_5_2_4.setFont(new Font("Dialog", Font.BOLD, 12));
+		btnNewButton_5_2_4.setBounds(192, 179, 65, 21);
+		panel_3.add(btnNewButton_5_2_4);
 		
-		JLabel lblNewLabel_7_5 = new JLabel("WINTERMELON");
-		lblNewLabel_7_5.setFont(new Font("Ink Free", Font.BOLD, 15));
-		lblNewLabel_7_5.setBounds(242, 238, 124, 32);
-		panel_3.add(lblNewLabel_7_5);
+		JButton btnNewButton_5_6 = new JButton("S-35");
+		btnNewButton_5_6.setFont(new Font("Dialog", Font.BOLD, 12));
+		btnNewButton_5_6.setBounds(42, 179, 65, 21);
+		panel_3.add(btnNewButton_5_6);
+		
+		JButton btnNewButton_4_1_1 = new JButton("pinakita ko lang yung size");
+		btnNewButton_4_1_1.setBounds(365, 10, 176, 166);
+		panel_3.add(btnNewButton_4_1_1);
+		
+		JButton btnNewButton_5_4_2_1 = new JButton("S-35");
+		btnNewButton_5_4_2_1.setFont(new Font("Dialog", Font.BOLD, 12));
+		btnNewButton_5_4_2_1.setBounds(354, 179, 65, 21);
+		panel_3.add(btnNewButton_5_4_2_1);
+		
+		JButton btnNewButton_5_1_2_2_1 = new JButton("M-40");
+		btnNewButton_5_1_2_2_1.setFont(new Font("Dialog", Font.BOLD, 12));
+		btnNewButton_5_1_2_2_1.setBounds(429, 179, 65, 21);
+		panel_3.add(btnNewButton_5_1_2_2_1);
+		
+		JButton btnNewButton_5_2_2_2_1 = new JButton("L-60");
+		btnNewButton_5_2_2_2_1.setFont(new Font("Dialog", Font.BOLD, 12));
+		btnNewButton_5_2_2_2_1.setBounds(504, 179, 65, 21);
+		panel_3.add(btnNewButton_5_2_2_2_1);
+		
+		JButton btnNewButton_4_3_2 = new JButton("New button");
+		btnNewButton_4_3_2.setBounds(365, 210, 176, 166);
+		panel_3.add(btnNewButton_4_3_2);
+		
+		JButton btnNewButton_5_1_2_3 = new JButton("M-40");
+		btnNewButton_5_1_2_3.setFont(new Font("Dialog", Font.BOLD, 12));
+		btnNewButton_5_1_2_3.setBounds(429, 379, 65, 21);
+		panel_3.add(btnNewButton_5_1_2_3);
+		
+		JButton btnNewButton_5_2_2_3 = new JButton("L-60");
+		btnNewButton_5_2_2_3.setFont(new Font("Dialog", Font.BOLD, 12));
+		btnNewButton_5_2_2_3.setBounds(504, 379, 65, 21);
+		panel_3.add(btnNewButton_5_2_2_3);
+		
+		JButton btnNewButton_5_4_3 = new JButton("S-35");
+		btnNewButton_5_4_3.setFont(new Font("Dialog", Font.BOLD, 12));
+		btnNewButton_5_4_3.setBounds(354, 379, 65, 21);
+		panel_3.add(btnNewButton_5_4_3);
+		
+		JButton btnNewButton_4_3_1_1 = new JButton("New button");
+		btnNewButton_4_3_1_1.setBounds(365, 410, 176, 166);
+		panel_3.add(btnNewButton_4_3_1_1);
+		
+		JButton btnNewButton_5_1_2_1_1 = new JButton("M-40");
+		btnNewButton_5_1_2_1_1.setFont(new Font("Dialog", Font.BOLD, 12));
+		btnNewButton_5_1_2_1_1.setBounds(429, 579, 65, 21);
+		panel_3.add(btnNewButton_5_1_2_1_1);
+		
+		JButton btnNewButton_5_2_2_1_1 = new JButton("L-60");
+		btnNewButton_5_2_2_1_1.setFont(new Font("Dialog", Font.BOLD, 12));
+		btnNewButton_5_2_2_1_1.setBounds(504, 579, 65, 21);
+		panel_3.add(btnNewButton_5_2_2_1_1);
+		
+		JButton btnNewButton_5_4_1_1 = new JButton("S-35");
+		btnNewButton_5_4_1_1.setFont(new Font("Dialog", Font.BOLD, 12));
+		btnNewButton_5_4_1_1.setBounds(354, 579, 65, 21);
+		panel_3.add(btnNewButton_5_4_1_1);
+		
+		JPanel panel_2 = new JPanel();
+		tabbedPane.addTab("Snacks", null, panel_2, null);
+		panel_2.setLayout(null);
+		
+		JButton btnNewButton_4 = new JButton("palitan ng jlabel");
+		btnNewButton_4.setBounds(64, 10, 176, 166);
+		panel_2.add(btnNewButton_4);
+		
+		JButton btnNewButton_4_1 = new JButton("pinakita ko lang yung size");
+		btnNewButton_4_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnNewButton_4_1.setBounds(364, 10, 176, 166);
+		panel_2.add(btnNewButton_4_1);
+		
+		JButton btnNewButton_4_2 = new JButton("New button");
+		btnNewButton_4_2.setBounds(64, 210, 176, 166);
+		panel_2.add(btnNewButton_4_2);
+		
+		JButton btnNewButton_4_3 = new JButton("New button");
+		btnNewButton_4_3.setBounds(364, 210, 176, 166);
+		panel_2.add(btnNewButton_4_3);
+		
+		JButton btnNewButton_4_4 = new JButton("New button");
+		btnNewButton_4_4.setBounds(64, 410, 176, 166);
+		panel_2.add(btnNewButton_4_4);
+		
+		JButton btnNewButton_5_5 = new JButton("Cheese");
+		btnNewButton_5_5.setFont(new Font("Dialog", Font.BOLD, 12));
+		btnNewButton_5_5.setBounds(41, 579, 93, 21);
+		panel_2.add(btnNewButton_5_5);
+		
+		JButton btnNewButton_5_2_3 = new JButton("Yema");
+		btnNewButton_5_2_3.setFont(new Font("Dialog", Font.BOLD, 12));
+		btnNewButton_5_2_3.setBounds(163, 579, 93, 21);
+		panel_2.add(btnNewButton_5_2_3);
+		
+		JButton btnNewButton_4_3_1 = new JButton("New button");
+		btnNewButton_4_3_1.setBounds(364, 410, 176, 166);
+		panel_2.add(btnNewButton_4_3_1);
+		
+		JButton btnNewButton_5_4_1 = new JButton("Malunggay");
+		btnNewButton_5_4_1.setFont(new Font("Dialog", Font.BOLD, 12));
+		btnNewButton_5_4_1.setBounds(353, 579, 93, 21);
+		panel_2.add(btnNewButton_5_4_1);
+		
+		JButton btnNewButton_5_2_2_1 = new JButton("Carrot");
+		btnNewButton_5_2_2_1.setFont(new Font("Dialog", Font.BOLD, 12));
+		btnNewButton_5_2_2_1.setBounds(475, 579, 93, 21);
+		panel_2.add(btnNewButton_5_2_2_1);
+		
+		JButton btnResetOrder = new JButton("Reset Order");
+		btnResetOrder.setFont(new Font("Dialog", Font.BOLD, 15));
+		btnResetOrder.setBounds(632, 537, 143, 21);
+		frame.getContentPane().add(btnResetOrder);
 	}
 }
