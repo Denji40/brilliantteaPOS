@@ -2,6 +2,7 @@ package milkteapos;
 
 import java.awt.EventQueue;
 
+import java.util.Date;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JLabel;
@@ -9,21 +10,19 @@ import java.awt.Font;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.JTextArea;
-import javax.swing.border.BevelBorder;
 import javax.swing.JTable;
 import javax.swing.JScrollPane;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.JTabbedPane;
-import java.awt.Color;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 public class MilkTeaPOS {
 
 	private JFrame frame;
-	private JTextField textField;
+	private JTextField customerName;
 	private JTable table;
-	private JTextField textField_1;
+	private JTextField cashAmount;
 
 	/**
 	 * Launch the application.
@@ -48,40 +47,60 @@ public class MilkTeaPOS {
 	public MilkTeaPOS() {
 		initialize();
 	}
-
-	/**
-	 * Initialize the contents of the frame.
-	 */
+	
+	// unfinished 
+	public void ItemCost()
+	{
+	double sum = 0;
+	
+	for (int i = 0; i < table.getRowCount(); i++)
+		{
+		sum = sum + Double.parseDouble(table.getValueAt(i, 2).toString()); 
+		}
+		//totalAmnt.setText(Double.toString(sum));
+	}	
+	// unfinished
+		public void Change()
+		{
+		double sum = 0;
+		//double cash = Double.parseDouble(cashAmount.getText());
+		
+		for (int i = 0; i < table.getRowCount(); i++)
+		{
+			sum = sum + Double.parseDouble(table.getValueAt(i, 2).toString());
+		}
+	}
+	
 	private void initialize() {
 		frame = new JFrame();
 		frame.setBounds(0, 0, 1292, 769);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("Customer's Name:");
-		lblNewLabel.setBounds(10, 10, 143, 26);
-		lblNewLabel.setFont(new Font("Dialog", Font.BOLD, 15));
-		frame.getContentPane().add(lblNewLabel);
+		JLabel jlabelCustomerName = new JLabel("Customer's Name:");
+		jlabelCustomerName.setBounds(10, 10, 143, 26);
+		jlabelCustomerName.setFont(new Font("Dialog", Font.BOLD, 15));
+		frame.getContentPane().add(jlabelCustomerName);
 		
-		JLabel lblNewLabel_1 = new JLabel("MENU");
-		lblNewLabel_1.setBounds(10, 58, 45, 13);
-		lblNewLabel_1.setFont(new Font("Dialog", Font.BOLD, 15));
-		frame.getContentPane().add(lblNewLabel_1);
+		JLabel jlabelMenu = new JLabel("MENU");
+		jlabelMenu.setBounds(10, 58, 45, 13);
+		jlabelMenu.setFont(new Font("Dialog", Font.BOLD, 15));
+		frame.getContentPane().add(jlabelMenu);
 		
-		JLabel lblNewLabel_2 = new JLabel("Date:");
-		lblNewLabel_2.setBounds(932, 19, 45, 13);
-		lblNewLabel_2.setFont(new Font("Dialog", Font.BOLD, 15));
-		frame.getContentPane().add(lblNewLabel_2);
+		JLabel jlabelDate = new JLabel("Date:");
+		jlabelDate.setBounds(932, 19, 45, 13);
+		jlabelDate.setFont(new Font("Dialog", Font.BOLD, 15));
+		frame.getContentPane().add(jlabelDate);
 		
-		JLabel lblNewLabel_3 = new JLabel("BRILLIANT MILKTEA AND SNACKS");
-		lblNewLabel_3.setBounds(485, 58, 258, 26);
-		lblNewLabel_3.setFont(new Font("Dialog", Font.BOLD, 15));
-		frame.getContentPane().add(lblNewLabel_3);
+		JLabel jlabelBusiness = new JLabel("BRILLIANT MILKTEA AND SNACKS");
+		jlabelBusiness.setBounds(485, 58, 258, 26);
+		jlabelBusiness.setFont(new Font("Dialog", Font.BOLD, 15));
+		frame.getContentPane().add(jlabelBusiness);
 		
-		textField = new JTextField();
-		textField.setBounds(150, 9, 242, 33);
-		frame.getContentPane().add(textField);
-		textField.setColumns(10);
+		customerName = new JTextField();
+		customerName.setBounds(150, 9, 242, 33);
+		frame.getContentPane().add(customerName);
+		customerName.setColumns(10);
 		
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(632, 94, 345, 437);
@@ -90,7 +109,6 @@ public class MilkTeaPOS {
 		table = new JTable();
 		table.setModel(new DefaultTableModel(
 			new Object[][] {
-				{null, null, null},
 			},
 			new String[] {
 				"Items", "Qty", "Amount"
@@ -110,61 +128,65 @@ public class MilkTeaPOS {
 		textArea.setBounds(0, 0, 289, 462);
 		panel.add(textArea);
 		
-		JButton btnNewButton = new JButton("Remove Item");
-		btnNewButton.setBounds(834, 535, 143, 21);
-		btnNewButton.setFont(new Font("Dialog", Font.BOLD, 15));
-		frame.getContentPane().add(btnNewButton);
+		JButton removeitemBtn = new JButton("Remove Item");
+		removeitemBtn.setBounds(834, 535, 143, 21);
+		removeitemBtn.setFont(new Font("Dialog", Font.BOLD, 15));
+		frame.getContentPane().add(removeitemBtn);
 		
 		JPanel panel_1 = new JPanel();
 		panel_1.setBounds(628, 568, 642, 154);
 		frame.getContentPane().add(panel_1);
 		panel_1.setLayout(null);
 		
-		JLabel lblNewLabel_4 = new JLabel("Total:");
-		lblNewLabel_4.setFont(new Font("Dialog", Font.BOLD, 25));
-		lblNewLabel_4.setBounds(52, 10, 86, 35);
-		panel_1.add(lblNewLabel_4);
+		JLabel jlabelTotal = new JLabel("Total:");
+		jlabelTotal.setFont(new Font("Dialog", Font.BOLD, 25));
+		jlabelTotal.setBounds(52, 10, 86, 35);
+		panel_1.add(jlabelTotal);
 		
-		JLabel lblNewLabel_4_1 = new JLabel("Cash:");
-		lblNewLabel_4_1.setFont(new Font("Dialog", Font.BOLD, 25));
-		lblNewLabel_4_1.setBounds(49, 55, 76, 35);
-		panel_1.add(lblNewLabel_4_1);
+		JLabel jlabelCash = new JLabel("Cash:");
+		jlabelCash.setFont(new Font("Dialog", Font.BOLD, 25));
+		jlabelCash.setBounds(49, 55, 76, 35);
+		panel_1.add(jlabelCash);
 		
-		JLabel lblNewLabel_4_2 = new JLabel("Change:");
-		lblNewLabel_4_2.setFont(new Font("Dialog", Font.BOLD, 25));
-		lblNewLabel_4_2.setBounds(19, 100, 106, 35);
-		panel_1.add(lblNewLabel_4_2);
+		JLabel jlabelChange = new JLabel("Change:");
+		jlabelChange.setFont(new Font("Dialog", Font.BOLD, 25));
+		jlabelChange.setBounds(19, 100, 106, 35);
+		panel_1.add(jlabelChange);
 		
-		JLabel lblNewLabel_5 = new JLabel("00");
-		lblNewLabel_5.setFont(new Font("Dialog", Font.BOLD, 25));
-		lblNewLabel_5.setBounds(130, 10, 168, 35);
-		panel_1.add(lblNewLabel_5);
+		JLabel totalAmnt = new JLabel("00");
+		totalAmnt.setFont(new Font("Dialog", Font.BOLD, 25));
+		totalAmnt.setBounds(130, 10, 168, 35);
+		panel_1.add(totalAmnt);
 		
-		JLabel lblNewLabel_5_1 = new JLabel("00");
-		lblNewLabel_5_1.setFont(new Font("Dialog", Font.BOLD, 25));
-		lblNewLabel_5_1.setBounds(130, 100, 168, 35);
-		panel_1.add(lblNewLabel_5_1);
+		JLabel cashChange = new JLabel("00");
+		cashChange.setFont(new Font("Dialog", Font.BOLD, 25));
+		cashChange.setBounds(130, 100, 168, 35);
+		panel_1.add(cashChange);
 		
-		textField_1 = new JTextField();
-		textField_1.setFont(new Font("Dialog", Font.BOLD, 25));
-		textField_1.setBounds(129, 55, 169, 35);
-		panel_1.add(textField_1);
-		textField_1.setColumns(10);
+		cashAmount = new JTextField();
+		cashAmount.setFont(new Font("Dialog", Font.BOLD, 25));
+		cashAmount.setBounds(129, 55, 169, 35);
+		panel_1.add(cashAmount);
+		cashAmount.setColumns(10);
 		
-		JButton btnNewButton_1 = new JButton("Pay");
-		btnNewButton_1.setFont(new Font("Dialog", Font.BOLD, 25));
-		btnNewButton_1.setBounds(359, 22, 125, 49);
-		panel_1.add(btnNewButton_1);
+		JButton payBtn = new JButton("Pay");
+		payBtn.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		payBtn.setFont(new Font("Dialog", Font.BOLD, 25));
+		payBtn.setBounds(359, 22, 125, 49);
+		panel_1.add(payBtn);
 		
-		JButton btnNewButton_2 = new JButton("Exit");
-		btnNewButton_2.setFont(new Font("Dialog", Font.BOLD, 25));
-		btnNewButton_2.setBounds(359, 85, 125, 50);
-		panel_1.add(btnNewButton_2);
+		JButton exitBtn = new JButton("Exit");
+		exitBtn.setFont(new Font("Dialog", Font.BOLD, 25));
+		exitBtn.setBounds(359, 85, 125, 50);
+		panel_1.add(exitBtn);
 		
-		JButton btnNewButton_3 = new JButton("Print");
-		btnNewButton_3.setFont(new Font("Dialog", Font.BOLD, 25));
-		btnNewButton_3.setBounds(508, 23, 125, 112);
-		panel_1.add(btnNewButton_3);
+		JButton printBtn = new JButton("Print");
+		printBtn.setFont(new Font("Dialog", Font.BOLD, 25));
+		printBtn.setBounds(508, 23, 125, 112);
+		panel_1.add(printBtn);
 		
 		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
 		tabbedPane.setBounds(10, 79, 614, 643);
@@ -344,5 +366,12 @@ public class MilkTeaPOS {
 		btnResetOrder.setFont(new Font("Dialog", Font.BOLD, 15));
 		btnResetOrder.setBounds(632, 537, 143, 21);
 		frame.getContentPane().add(btnResetOrder);
-	}
+		
+		JLabel currentDate = new JLabel("");
+		currentDate.setFont(new Font("Dialog", Font.BOLD, 15));
+		currentDate.setBounds(978, 20, 270, 13);
+		frame.getContentPane().add(currentDate);	
+		Date date = new Date();
+		currentDate.setText(date.toString());
 }
+	}
