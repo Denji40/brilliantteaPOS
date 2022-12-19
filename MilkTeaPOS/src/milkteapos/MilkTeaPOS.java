@@ -57,26 +57,54 @@ public class MilkTeaPOS {
 	/**
 	 * Initialize the contents of the frame.
 	 */
+	public void ItemCost()
+	{
+	double sum = 0;
+
+	for (int i = 0; i < table.getRowCount(); i++)
+		{
+		sum = sum + Double.parseDouble(table.getValueAt(i, 2).toString()); 
+		}
+		txtTotal.setText(Double.toString(sum));
+		double totalAmnt = Double.parseDouble(txtTotal.getText());
+		String totalFormat = String.format("₱" + totalAmnt);
+		txtTotal.setText(totalFormat);
+	}
+	
+	public void Change()
+	{
+	double sum = 0;
+	double cash = Double.parseDouble(txtCash.getText());
+
+	for (int i = 0; i < table.getRowCount(); i++)
+	{
+		sum = sum + Double.parseDouble(table.getValueAt(i, 2).toString());
+	}
+	
+	double change =  (cash - sum);
+	String changeGiven = String.format("₱" + change);
+	txtChange.setText(changeGiven);
+}
 	private void initialize() {
 		frame = new JFrame();
 		frame.setBounds(0, 0, 1292, 740);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
-		JLabel jlbl_custName = new JLabel("Customer's Name:");
-		jlbl_custName.setBounds(10, 10, 143, 26);
-		jlbl_custName.setFont(new Font("Dialog", Font.BOLD, 15));
-		frame.getContentPane().add(jlbl_custName);
+		JLabel lblCustomerName = new JLabel("Customer's Name:");
+		lblCustomerName.setBounds(10, 10, 143, 26);
+		lblCustomerName.setFont(new Font("Dialog", Font.BOLD, 15));
+		frame.getContentPane().add(lblCustomerName);
 		
-		JLabel jlabelMenu = new JLabel("MENU");
-		jlabelMenu.setBounds(10, 58, 45, 13);
-		jlabelMenu.setFont(new Font("Dialog", Font.BOLD, 15));
-		frame.getContentPane().add(jlabelMenu);
+		JLabel lblMenu = new JLabel("MENU");
+		lblMenu.setBounds(10, 58, 45, 13);
+		lblMenu.setFont(new Font("Dialog", Font.BOLD, 15));
+		frame.getContentPane().add(lblMenu);
 		
-		JLabel lblNewLabel_2 = new JLabel("Date:");
-		lblNewLabel_2.setBounds(932, 19, 45, 13);
-		lblNewLabel_2.setFont(new Font("Dialog", Font.BOLD, 15));
-		frame.getContentPane().add(lblNewLabel_2);
+		JLabel lblDate = new JLabel("Date:");
+		lblDate.setBounds(932, 19, 45, 13);
+		lblDate.setFont(new Font("Dialog", Font.BOLD, 15));
+		frame.getContentPane().add(lblDate);
 		
 		JLabel currentDate = new JLabel("");
 		currentDate.setFont(new Font("Dialog", Font.BOLD, 15));
@@ -386,6 +414,11 @@ public class MilkTeaPOS {
 		txtCash.setColumns(10);
 		
 		JButton btnPay = new JButton("Pay");
+		btnPay.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {			
+				Change();
+			}
+		});
 		btnPay.setFont(new Font("Dialog", Font.BOLD, 25));
 		btnPay.setBounds(359, 22, 125, 49);
 		panel_1.add(btnPay);
@@ -427,6 +460,7 @@ public class MilkTeaPOS {
 			double Price= 35;
 			DefaultTableModel model = (DefaultTableModel) table.getModel();
 			model.addRow(new Object[] {"WINTERMELON SMALL", "1", Price});
+			ItemCost();
 			}
 		});
 		btnWinterS.setBounds(47, 166, 63, 21);
@@ -439,6 +473,7 @@ public class MilkTeaPOS {
 				double Price= 40;
 				DefaultTableModel model = (DefaultTableModel) table.getModel();
 				model.addRow(new Object[] {"WINTERMELON MEDIUM", "1", Price});
+				ItemCost();
 			}
 		});
 		btnWinterM.setBounds(120, 166, 63, 21);
@@ -451,6 +486,7 @@ public class MilkTeaPOS {
 				double Price= 60;
 				DefaultTableModel model = (DefaultTableModel) table.getModel();
 				model.addRow(new Object[] {"WINTERMELON LARGE", "1", Price});
+				ItemCost();
 			}
 		});
 		btnWinterL.setBounds(198, 166, 63, 21);
@@ -475,6 +511,7 @@ public class MilkTeaPOS {
 				double Price= 35;
 				DefaultTableModel model = (DefaultTableModel) table.getModel();
 				model.addRow(new Object[] {"TARO SMALL", "1", Price});
+				ItemCost();
 			}
 		});
 		btnTaroS.setBounds(347, 166, 63, 21);
@@ -487,6 +524,7 @@ public class MilkTeaPOS {
 				double Price= 40;
 				DefaultTableModel model = (DefaultTableModel) table.getModel();
 				model.addRow(new Object[] {"TARO MEDIUM", "1", Price});
+				ItemCost();
 			}
 		});
 		btnNewButton_4_1_1.setBounds(420, 166, 63, 21);
@@ -499,6 +537,7 @@ public class MilkTeaPOS {
 				double Price= 60;
 				DefaultTableModel model = (DefaultTableModel) table.getModel();
 				model.addRow(new Object[] {"TARO LARGE", "1", Price});
+				ItemCost();
 			}
 		});
 		btnTaroL.setBounds(498, 166, 63, 21);
@@ -517,6 +556,7 @@ public class MilkTeaPOS {
 				double Price= 35;
 				DefaultTableModel model = (DefaultTableModel) table.getModel();
 				model.addRow(new Object[] {"MATCHA SMALL", "1", Price});
+				ItemCost();
 			}
 		});
 		btnMatchaS.setBounds(47, 364, 63, 21);
@@ -529,6 +569,7 @@ public class MilkTeaPOS {
 				double Price= 40;
 				DefaultTableModel model = (DefaultTableModel) table.getModel();
 				model.addRow(new Object[] {"MATCHA MEDIUM", "1", Price});
+				ItemCost();
 			}
 		});
 		btnMatchaM.setBounds(120, 364, 63, 21);
@@ -541,6 +582,7 @@ public class MilkTeaPOS {
 				double Price= 60;
 				DefaultTableModel model = (DefaultTableModel) table.getModel();
 				model.addRow(new Object[] {"MATCHA LARGE", "1", Price});
+				ItemCost();
 			}
 		});
 		btnMatchaL.setBounds(198, 364, 63, 21);
@@ -559,6 +601,7 @@ public class MilkTeaPOS {
 				double Price= 35;
 				DefaultTableModel model = (DefaultTableModel) table.getModel();
 				model.addRow(new Object[] {"COOKIES&CREAM SMALL", "1", Price});
+				ItemCost();
 			}
 		});
 		btnCCS.setBounds(347, 364, 63, 21);
@@ -571,6 +614,7 @@ public class MilkTeaPOS {
 				double Price= 40;
 				DefaultTableModel model = (DefaultTableModel) table.getModel();
 				model.addRow(new Object[] {"COOKIES&CREAM MEDIUM", "1", Price});
+				ItemCost();
 			}
 		});
 		btnCCM.setBounds(420, 364, 63, 21);
@@ -583,6 +627,7 @@ public class MilkTeaPOS {
 				double Price= 60;
 				DefaultTableModel model = (DefaultTableModel) table.getModel();
 				model.addRow(new Object[] {"COOKIES&CREAM LARGE", "1", Price});
+				ItemCost();
 			}
 		});
 		btnCCL.setBounds(498, 364, 63, 21);
@@ -601,6 +646,7 @@ public class MilkTeaPOS {
 				double Price= 35;
 				DefaultTableModel model = (DefaultTableModel) table.getModel();
 				model.addRow(new Object[] {"HOKKAIDOU SMALL", "1", Price});
+				ItemCost();
 			}
 		});
 		btnHokkaiS.setBounds(47, 559, 63, 21);
@@ -613,6 +659,7 @@ public class MilkTeaPOS {
 				double Price= 40;
 				DefaultTableModel model = (DefaultTableModel) table.getModel();
 				model.addRow(new Object[] {"HOKKAIDOU MEDIUM", "1", Price});
+				ItemCost();
 			}
 		});
 		btnHokkaiM.setBounds(120, 559, 63, 21);
@@ -625,6 +672,7 @@ public class MilkTeaPOS {
 				double Price= 60;
 				DefaultTableModel model = (DefaultTableModel) table.getModel();
 				model.addRow(new Object[] {"HOKKAIDOU LARGE", "1", Price});
+				ItemCost();
 			}
 		});
 		btnHokkaiL.setBounds(198, 559, 63, 21);
@@ -643,6 +691,7 @@ public class MilkTeaPOS {
 				double Price= 35;
 				DefaultTableModel model = (DefaultTableModel) table.getModel();
 				model.addRow(new Object[] {"OKINAWA SMALL", "1", Price});
+				ItemCost();
 			}
 		});
 		btnOkinawaS.setBounds(347, 559, 63, 21);
@@ -655,6 +704,7 @@ public class MilkTeaPOS {
 				double Price= 40;
 				DefaultTableModel model = (DefaultTableModel) table.getModel();
 				model.addRow(new Object[] {"OKINAWA MEDIUM", "1", Price});
+				ItemCost();
 			}
 		});
 		btnOkinawaM.setBounds(420, 559, 63, 21);
@@ -667,6 +717,7 @@ public class MilkTeaPOS {
 				double Price= 60;
 				DefaultTableModel model = (DefaultTableModel) table.getModel();
 				model.addRow(new Object[] {"OKINAWA LARGE", "1", Price});
+				ItemCost();
 			}
 		});
 		btnOkinawaL.setBounds(498, 559, 63, 21);
