@@ -381,8 +381,23 @@ public class MilkTeaPOS {
 		btnClear.setFont(new Font("Tahoma", Font.BOLD, 25));
 		btnClear.setBounds(200, 319, 85, 70);
 		panel.add(btnClear);
-		
+				
 		JButton btnRemove = new JButton("Remove Item");
+		btnRemove.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				DefaultTableModel model = (DefaultTableModel)table.getModel();
+				int RemoveItem = table.getSelectedRow();
+				if (RemoveItem >= 0)
+				{
+				model.removeRow(RemoveItem);
+				}
+				else
+				{
+					txtChange.setText("");
+					txtCash.setText("");
+				}
+			}
+		});
 		btnRemove.setBounds(834, 516, 143, 21);
 		btnRemove.setFont(new Font("Dialog", Font.BOLD, 15));
 		frame.getContentPane().add(btnRemove);
@@ -821,8 +836,18 @@ public class MilkTeaPOS {
 		lblNewLabel_7_5.setFont(new Font("Ink Free", Font.BOLD, 15));
 		lblNewLabel_7_5.setBounds(242, 238, 124, 32);
 		panel_3.add(lblNewLabel_7_5);
-		
+	
 		JButton btnReset = new JButton("Reset");
+		btnReset.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			txtCash.setText(null);
+			txtChange.setText(null);
+			txtTotal.setText(null);
+					
+			DefaultTableModel RecordTable = (DefaultTableModel)table.getModel();
+			RecordTable.setRowCount(0);
+			}
+		});
 		btnReset.setFont(new Font("Dialog", Font.BOLD, 15));
 		btnReset.setBounds(991, 516, 143, 21);
 		frame.getContentPane().add(btnReset);
